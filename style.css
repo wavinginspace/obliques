@@ -26,7 +26,7 @@ h2 {
 
 section {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
@@ -43,8 +43,8 @@ section div.circle {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  bottom: 50%;
   left: 0;
   width: 100%;
   padding: 30px;
@@ -54,28 +54,83 @@ footer {
 }
 
 footer img {
-  margin: 0 10px 100px 10px;
+  display: inline-block;
+  margin: 0 10px 10px 10px;
   cursor: pointer;
+  width: 35px;
 }
 
 section a {
   color: black;
 }
 
-.addbutton {
+.submitbutton {
+  background-color: transparent;
+  border: none;
+  color: black;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 15%;
+  transition: background-color .5s ease-in;
+}
+
+.submitbutton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="text"]
+{
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+}
+
+.inputbox {
+  position: absolute;
+}
+
+.inputbox:focus {
+  border: none;
+  outline: none;
+}
+
+input {
+  text-align: center;
+}
+
+.addcustom {
+  position: relative;
+  margin-bottom: -40px;
+}
+
+.bottomstuff {
+  position: relative;
+  top: 75%;
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  text-align: center;
+}
+
+.removebutton {
+  text-align: left;
+  position: relative;
   background-color: transparent; /* Green */
   border: none;
   color: black;
-  padding: 10px;
   text-decoration: none;
-  display: block;
   font-size: 16px;
-  position: absolute;
   cursor: pointer;
-  border-radius: 30%;
-  transition: background-color 1s ease-in;
-}
-
-.addbutton:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15%;
+  transition: background-color .5s ease-in;
+  left: 50%;
+  bottom: 15px;
+  margin-left: -1px;
+  transform: translateX(-50%);
 }

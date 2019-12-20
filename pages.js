@@ -82,10 +82,22 @@ document.addEventListener('keydown', function(e) {
 })
 
 
-// button function
+// add and delete button functions
 
-buttonTag.addEventListener('click', function() {
+const submitbutton = document.querySelector('.submitbutton');
+const removebutton = document.querySelector('.removebutton');
+
+submitbutton.addEventListener('click', function() {
+  let inputValue = document.getElementById('inputbox').value;
   pages.push(
-    {copy: 'Breathe!!!!!', background: '#d3c7f3', circle: '#f7fe00'},
-  )
+    {copy: inputValue, background: '#d3c7f3', circle: '#f7fe00'}
+    );
+    document.getElementById('inputbox').value = '';
+  });
+
+removebutton.addEventListener('click', function() {
+  pages.pop();
+  previous();
 })
+
+

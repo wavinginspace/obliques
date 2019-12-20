@@ -54,10 +54,28 @@ footer {
 }
 
 footer img {
-  margin: 0 10px;
+  margin: 0 10px 100px 10px;
   cursor: pointer;
 }
 
 section a {
   color: black;
+}
+
+.addbutton {
+  background-color: transparent; /* Green */
+  border: none;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 30%;
+  transition: background-color 1s ease-in;
+}
+
+.addbutton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }

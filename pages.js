@@ -23,6 +23,7 @@ const randomTag = document.querySelector('.random')
 const outputTag = document.querySelector('h2')
 const bodyTag = document.querySelector('body')
 const circleTag = document.querySelector('section div.circle')
+const buttonTag = document.querySelector('.addbutton')
 // make the next function to increase the pageNumber
 const next = function() {
   pageNumber += 1
@@ -78,4 +79,13 @@ document.addEventListener('keydown', function(e) {
   if (e.keyCode === 39) {
     next()
   }
+})
+
+
+// button function
+
+buttonTag.addEventListener('click', function() {
+  pages.push(
+    {copy: 'Breathe!!!!!', background: '#d3c7f3', circle: '#f7fe00'},
+  )
 })

@@ -89,14 +89,30 @@ document.addEventListener('keydown', function(e) {
 const submitbutton = document.querySelector('.submitbutton');
 const removebutton = document.querySelector('.removebutton');
 
-submitbutton.addEventListener('click', function() {
+// adds new phrase to the pages array
+const addNewPhrase = function () {
   let inputValue = document.getElementById('inputbox').value;
   pages.push(
     {copy: inputValue, background: '#d3c7f3', circle: '#f7fe00'}
     );
     document.getElementById('inputbox').value = '';
-  });
+    submitbutton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
 
+    setTimeout(function() {
+      submitbutton.style.backgroundColor = 'transparent'
+    }, 700);
+};
+
+submitbutton.addEventListener('click', () => addNewPhrase());
+
+document.addEventListener('keydown', function(e) {
+ if (e.keyCode === 13) {
+   addNewPhrase();
+   e.preventDefault();
+ }
+})
+
+ 
 removebutton.addEventListener('click', function() {
   pages.pop();
   next();

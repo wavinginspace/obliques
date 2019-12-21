@@ -110,7 +110,7 @@ input {
   top: 75%;
 }
 
-button:focus {
+input[type="submit"] {
   outline: none;
 }
 

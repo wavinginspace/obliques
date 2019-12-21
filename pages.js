@@ -46,10 +46,12 @@ const previous = function() {
 }
 
 // pick a random slide
+// let randomNum = Math.floor(Math.random * pages.length);
 
 const random = function() {
-  pageNumber = Math.floor(Math.random() * 4)
-  updateSection()
+  let randomNum = Math.floor(Math.random() * pages.length);
+  pageNumber = randomNum;
+  updateSection();
 }
 
 // this will update the section's content and style
@@ -97,7 +99,7 @@ submitbutton.addEventListener('click', function() {
 
 removebutton.addEventListener('click', function() {
   pages.pop();
-  previous();
+  next();
 })
 
 

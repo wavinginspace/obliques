@@ -2,7 +2,8 @@
 let pageNumber = 0;
 
 //have the content for these pages
-const pages = [
+
+let paulDeck = [
 	{ copy: 'be kind to yourself', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: "don't overthink it", background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
@@ -16,6 +17,8 @@ const pages = [
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
 ];
 
+const newDeck = [];
+
 // pick the relevant tags
 const nextTag = document.querySelector('.next');
 const prevTag = document.querySelector('.prev');
@@ -24,11 +27,12 @@ const outputTag = document.querySelector('h2');
 const bodyTag = document.querySelector('body');
 const circleTag = document.querySelector('section div.circle');
 const buttonTag = document.querySelector('.addbutton');
+
 // make the next function to increase the pageNumber
 const next = function() {
 	pageNumber += 1;
 
-	if (pageNumber > pages.length - 1) {
+	if (pageNumber > paulDeck.length - 1) {
 		pageNumber = 0;
 	}
 
@@ -39,7 +43,7 @@ const previous = function() {
 	pageNumber -= 1;
 
 	if (pageNumber < 0) {
-		pageNumber = pages.length - 1;
+		pageNumber = paulDeck.length - 1;
 	}
 
 	updateSection();
@@ -47,18 +51,20 @@ const previous = function() {
 
 // pick a random slide
 // let randomNum = Math.floor(Math.random * pages.length);
-
 const random = function() {
-	let randomNum = Math.floor(Math.random() * pages.length);
+	let randomNum = Math.floor(Math.random() * paulDeck.length);
 	pageNumber = randomNum;
 	updateSection();
 };
 
 // this will update the section's content and style
 const updateSection = function() {
-	outputTag.innerHTML = pages[pageNumber].copy;
-	circleTag.style.backgroundColor = pages[pageNumber].circle;
-	bodyTag.style.backgroundColor = pages[pageNumber].background;
+	if ((outputTag.innerHTML = '')) {
+		return;
+	}
+	outputTag.innerHTML = paulDeck[pageNumber].copy;
+	circleTag.style.backgroundColor = paulDeck[pageNumber].circle;
+	bodyTag.style.backgroundColor = paulDeck[pageNumber].background;
 };
 // on click of nextTag, run this
 nextTag.addEventListener('click', function() {
@@ -91,7 +97,15 @@ const removebutton = document.querySelector('.removebutton');
 // adds new phrase to the pages array
 const addNewPhrase = function() {
 	let inputValue = document.getElementById('inputbox').value;
-	pages.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
+	if (!inputValue) {
+		return;
+	}
+
+	if (outputTag.innerHTML === '') {
+		outputTag.innerHTML = inputValue;
+	}
+
+	paulDeck.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
 	document.getElementById('inputbox').value = '';
 	submitbutton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
 
@@ -110,6 +124,36 @@ document.addEventListener('keydown', function(e) {
 });
 
 removebutton.addEventListener('click', function() {
-	pages.pop();
+	paulDeck.pop();
 	next();
+});
+
+// deck buttons
+
+const newDeckButton = document.getElementById('newdeck');
+const paulDeckButton = document.querySelector('#pauldeckbutton');
+
+//returns to default starter deck
+paulDeckButton.addEventListener('click', function() {
+	console.log('test');
+	paulDeck = [
+		{ copy: 'be kind to yourself', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: "don't overthink it", background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'make some tea', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'hug an animal', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'dress comfortably', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'close your eyes', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'congratulate yourself', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'talk to a friend', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'eat some fruit', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
+	];
+	document.querySelector('.mainbody h2').innerHTML = 'breathe';
+});
+
+//creates blank new deck
+newDeckButton.addEventListener('click', function() {
+	paulDeck = [];
+	document.querySelector('.mainbody h2').innerHTML = '';
 });

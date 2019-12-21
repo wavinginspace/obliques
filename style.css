@@ -139,11 +139,24 @@ button {
 	margin-left: 60%;
 }
 
+#newdeckcount {
+	position: relative;
+	display: inline-block;
+	z-index: 2;
+	width: 100px;
+	top: -27px;
+	right: 0;
+	margin-left: 256px;
+	font-size: 16px;
+	font-weight: 500;
+	word-wrap: nowrap;
+}
+
 .deckbutton {
 	font-family: 'Courier Prime', monospace;
 	font-size: 16px;
 	position: relative;
-	display: block;
+	display: inline-block;
 	margin-right: 80px;
 	margin-bottom: 10px;
 	margin-top: 20px;
@@ -161,4 +174,8 @@ button {
 .deckbutton:hover {
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.deckbutton:focus {
+	outline: none;
 }

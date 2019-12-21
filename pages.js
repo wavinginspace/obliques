@@ -4,6 +4,7 @@ let pageNumber = 0;
 //have the content for these pages
 
 let paulDeck = [
+	{ copy: 'breathe', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'be kind to yourself', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: "don't overthink it", background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
@@ -53,13 +54,22 @@ const previous = function() {
 // let randomNum = Math.floor(Math.random * pages.length);
 const random = function() {
 	let randomNum = Math.floor(Math.random() * paulDeck.length);
-	pageNumber = randomNum;
+	if (pageNumber === randomNum && pageNumber >= paulDeck.length - 1) {
+		pageNumber = randomNum - 1;
+	} else if (pageNumber === randomNum && randomNum - 1 < 0) {
+		pageNumber = randomNum + 1;
+	} else if (pageNumber === randomNum) {
+		pageNumber = randomNum + 1;
+	} else {
+		pageNumber = randomNum;
+	}
+	console.log(randomNum);
 	updateSection();
 };
 
 // this will update the section's content and style
 const updateSection = function() {
-	if ((outputTag.innerHTML = '')) {
+	if (outputTag.innerHTML === '') {
 		return;
 	}
 	outputTag.innerHTML = paulDeck[pageNumber].copy;
@@ -83,9 +93,11 @@ randomTag.addEventListener('click', function() {
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 37) {
 		previous();
+		e.preventDefault();
 	}
 	if (e.keyCode === 39) {
 		next();
+		e.preventDefault();
 	}
 });
 
@@ -93,6 +105,7 @@ document.addEventListener('keydown', function(e) {
 
 const submitbutton = document.querySelector('.submitbutton');
 const removebutton = document.querySelector('.removebutton');
+const newdeckcount = document.getElementById('newdeckcount');
 
 // adds new phrase to the pages array
 const addNewPhrase = function() {
@@ -101,13 +114,15 @@ const addNewPhrase = function() {
 		return;
 	}
 
-	if (outputTag.innerHTML === '') {
-		outputTag.innerHTML = inputValue;
-	}
-
 	paulDeck.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
 	document.getElementById('inputbox').value = '';
 	submitbutton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+
+	if (paulDeck.length === 1) {
+		outputTag.innerHTML = inputValue;
+	}
+
+	newdeckcount.innerHTML = `- ${paulDeck.length}`;
 
 	setTimeout(function() {
 		submitbutton.style.backgroundColor = 'transparent';
@@ -121,10 +136,22 @@ document.addEventListener('keydown', function(e) {
 		addNewPhrase();
 		e.preventDefault();
 	}
+
+	if (e.keyCode === 81) {
+		random();
+		e.preventDefault();
+	}
 });
 
 removebutton.addEventListener('click', function() {
+	newdeckcount.innerText = `- ${paulDeck.length - 1}`;
+	if (paulDeck.length <= 0) {
+		newdeckcount.style.display = 'none';
+	}
 	paulDeck.pop();
+	if (paulDeck.length <= 0) {
+		outputTag.innerHTML = '';
+	}
 	next();
 });
 

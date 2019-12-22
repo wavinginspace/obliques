@@ -15,7 +15,6 @@ let paulDeck = [
 	{ copy: 'congratulate yourself', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'talk to a friend', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'eat some fruit', background: '#edc7a9', circle: '#3e78ed' },
-
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'light some incense', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'take a nap', background: '#edc7a9', circle: '#3e78ed' },

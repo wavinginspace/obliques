@@ -15,6 +15,7 @@ let paulDeck = [
 	{ copy: 'congratulate yourself', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'talk to a friend', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'eat some fruit', background: '#edc7a9', circle: '#3e78ed' },
+
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'light some incense', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'take a nap', background: '#edc7a9', circle: '#3e78ed' },
@@ -39,7 +40,8 @@ let paulDeck = [
 	{ copy: 'draw something', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'record some music', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'learn something new', background: '#edc7a9', circle: '#3e78ed' },
-	{ copy: 'light a candle', background: '#a1fffe', circle: '#e34a47' }
+	{ copy: 'light a candle', background: '#a1fffe', circle: '#e34a47' },
+	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
 ];
 
 const newDeck = [];

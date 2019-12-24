@@ -4,8 +4,8 @@ let pageNumber = 0;
 //have the content for these pages
 
 let paulDeck = [
-	{ copy: 'breathe', background: '#d3c7f3', circle: '#f7fe00' },
-	{ copy: 'be kind to yourself', background: '#edc7a9', circle: '#3e78ed' },
+	{ copy: 'breathe', background: '', circle: '#f7fe00' },
+	{ copy: 'be kind to yourself', background: '', circle: '#3e78ed' },
 	{ copy: "don't overthink it", background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'make some tea', background: '#edc7a9', circle: '#3e78ed' },
@@ -18,7 +18,7 @@ let paulDeck = [
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'light some incense', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'take a nap', background: '#edc7a9', circle: '#3e78ed' },
-	{ copy: "listen to relaxing music", background: '#a1fffe', circle: '#e34a47' },
+	{ copy: 'listen to relaxing music', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'stretch!', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'go for a bike ride', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: 'have a drink', background: '#a1fffe', circle: '#e34a47' },
@@ -30,18 +30,33 @@ let paulDeck = [
 	{ copy: 'lie down on the floor', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'count your blessings', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'take a long shower', background: '#edc7a9', circle: '#3e78ed' },
-	{ copy: "have a snack", background: '#a1fffe', circle: '#e34a47' },
+	{ copy: 'have a snack', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'lose yourself in a book', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'play a record', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: 'go outside', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'take 10 deep breaths', background: '#d3c7f3', circle: '#f7fe00' },
-	{ copy: "write down your feelings", background: '#edc7a9', circle: '#3e78ed' },
+	{ copy: 'write down your feelings', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: 'draw something', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'record some music', background: '#d3c7f3', circle: '#f7fe00' },
 	{ copy: 'learn something new', background: '#edc7a9', circle: '#3e78ed' },
 	{ copy: 'light a candle', background: '#a1fffe', circle: '#e34a47' },
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
 ];
+
+// random hexadecimal function
+
+const randomColor = function() {
+	return (
+		'#' +
+		(function lol(m, s, c) {
+			return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
+		})(Math, '0123456789ABCDEF', 4)
+	);
+};
+
+// for each element in array, assign random color to background gradient
+
+// paulDeck.forEach((card) => (card.background = randomColor()));
 
 const newDeck = [];
 
@@ -101,17 +116,21 @@ const updateSection = function() {
 	circleTag.style.backgroundColor = paulDeck[pageNumber].circle;
 	bodyTag.style.backgroundColor = paulDeck[pageNumber].background;
 };
+
 // on click of nextTag, run this
 nextTag.addEventListener('click', function() {
 	next();
+	paulDeck.forEach((card) => (card.background = randomColor()));
 });
 // on click of prevTag, run this
 prevTag.addEventListener('click', function() {
 	previous();
+	paulDeck.forEach((card) => (card.background = randomColor()));
 });
 
 randomTag.addEventListener('click', function() {
 	random();
+	paulDeck.forEach((card) => (card.background = randomColor()));
 });
 
 // keyup events

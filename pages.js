@@ -43,6 +43,8 @@ let paulDeck = [
 	{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
 ];
 
+const newDeck = [];
+
 // random hexadecimal function
 
 const randomColor = function() {
@@ -57,8 +59,6 @@ const randomColor = function() {
 // for each element in array, assign random color to background gradient
 
 // paulDeck.forEach((card) => (card.background = randomColor()));
-
-const newDeck = [];
 
 // pick the relevant tags
 const nextTag = document.querySelector('.next');

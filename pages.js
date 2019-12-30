@@ -173,11 +173,22 @@ const addNewPhrase = function() {
 	}, 700);
 };
 
-submitbutton.addEventListener('click', () => addNewPhrase());
+const circleAnimation = function() {
+	circleTag.classList.add('animation');
+	setTimeout(function() {
+		circleTag.classList.remove('animation');
+	}, 2000);
+};
+
+submitbutton.addEventListener('click', () => {
+	addNewPhrase();
+	circleAnimation();
+});
 
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 13) {
 		addNewPhrase();
+		circleAnimation();
 		e.preventDefault();
 	}
 

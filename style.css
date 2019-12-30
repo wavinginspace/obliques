@@ -1,3 +1,15 @@
+@keyframes ballbounce {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-25px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
 body {
 	font-family: 'Courier Prime', monospace;
 	font-size: 24px;
@@ -34,12 +46,20 @@ section {
 }
 
 section div.circle {
+	position: relative;
 	width: 20px;
 	height: 20px;
 	background-color: #3e78ed;
 	border-radius: 50%;
 	display: inline-block;
 	transition: background-color 0.5s ease-in;
+}
+
+.animation {
+	animation-name: ballbounce;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
 }
 
 footer {

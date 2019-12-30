@@ -1,6 +1,12 @@
 // this is the data for holding which page we're on
 let pageNumber = 0;
 
+// COME BACK TO THIS --> use this as an argument for any function that is currently using
+// paulDeck so that you can switch between different decks.
+
+let currentDeck;
+let newDeck = [];
+
 //have the content for these pages
 
 let paulDeck = [
@@ -70,6 +76,7 @@ const circleTag = document.querySelector('section div.circle');
 const buttonTag = document.querySelector('.addbutton');
 
 // make the next function to increase the pageNumber
+
 const next = function() {
 	pageNumber += 1;
 
@@ -151,7 +158,8 @@ const submitbutton = document.querySelector('.submitbutton');
 const removebutton = document.querySelector('.removebutton');
 const newdeckcount = document.getElementById('newdeckcount');
 
-// adds new phrase to the pages array
+// adds new phrase to the pages array ---------------------------------------------------
+
 const addNewPhrase = function() {
 	let inputValue = document.getElementById('inputbox').value;
 	if (!inputValue) {
@@ -189,6 +197,8 @@ submitbutton.addEventListener('click', () => {
 
 // ---------------------------------------------------------------//
 
+// key events for add new phrase
+
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 13) {
 		addNewPhrase();
@@ -223,7 +233,8 @@ const paulDeckButton = document.querySelector('#pauldeckbutton');
 paulDeckButton.addEventListener('click', function() {
 	console.log('test');
 	paulDeck = [
-		{ copy: 'be kind to yourself', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'breathe', background: '', circle: '#f7fe00' },
+		{ copy: 'be kind to yourself', background: '', circle: '#3e78ed' },
 		{ copy: "don't overthink it", background: '#a1fffe', circle: '#e34a47' },
 		{ copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
 		{ copy: 'make some tea', background: '#edc7a9', circle: '#3e78ed' },
@@ -233,6 +244,31 @@ paulDeckButton.addEventListener('click', function() {
 		{ copy: 'congratulate yourself', background: '#a1fffe', circle: '#e34a47' },
 		{ copy: 'talk to a friend', background: '#d3c7f3', circle: '#f7fe00' },
 		{ copy: 'eat some fruit', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'light some incense', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'take a nap', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'listen to relaxing music', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'stretch!', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'go for a bike ride', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'have a drink', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'meditate', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'text someone who loves you', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'visualize where you want to be', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'plan a trip', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'play an instrument', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'lie down on the floor', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'count your blessings', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'take a long shower', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'have a snack', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'lose yourself in a book', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'play a record', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'go outside', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'take 10 deep breaths', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'write down your feelings', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'draw something', background: '#a1fffe', circle: '#e34a47' },
+		{ copy: 'record some music', background: '#d3c7f3', circle: '#f7fe00' },
+		{ copy: 'learn something new', background: '#edc7a9', circle: '#3e78ed' },
+		{ copy: 'light a candle', background: '#a1fffe', circle: '#e34a47' },
 		{ copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
 	];
 	document.querySelector('.mainbody h2').innerHTML = 'breathe';

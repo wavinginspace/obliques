@@ -5,7 +5,6 @@ let pageNumber = 0;
 // paulDeck so that you can switch between different decks.
 
 let currentDeck;
-let newDeck = [];
 
 //have the content for these pages
 

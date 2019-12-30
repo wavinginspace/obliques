@@ -173,6 +173,8 @@ const addNewPhrase = function() {
 	}, 700);
 };
 
+// ballbounce function -------------------------------------------//
+
 const circleAnimation = function() {
 	circleTag.classList.add('animation');
 	setTimeout(function() {
@@ -184,6 +186,8 @@ submitbutton.addEventListener('click', () => {
 	addNewPhrase();
 	circleAnimation();
 });
+
+// ---------------------------------------------------------------//
 
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 13) {

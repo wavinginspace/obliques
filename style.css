@@ -92,6 +92,7 @@ section a {
 	font-size: 24px;
 	cursor: pointer;
 	border-radius: 15%;
+	padding-top: 5px;
 	transition: background-color .5s ease-in;
 }
 

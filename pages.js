@@ -46,20 +46,6 @@ const newDeck = [];
 window.onload = function() {
 	currentDeck = paulDeck;
 };
-// random hexadecimal function
-
-const randomColor = function() {
-	return (
-		'#' +
-		(function lol(m, s, c) {
-			return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
-		})(Math, '0123456789ABCDEF', 4)
-	);
-};
-
-// for each element in array, assign random color to background gradient
-
-// paulDeck.forEach((card) => (card.background = randomColor()));
 
 // pick the relevant tags
 const nextTag = document.querySelector('.next');
@@ -120,20 +106,38 @@ const updateSection = function() {
 	bodyTag.style.backgroundColor = currentDeck[pageNumber].background;
 };
 
+// random hexadecimal function
+
+const randomColor = function() {
+	return (
+		'#' +
+		(function lol(m, s, c) {
+			return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
+		})(Math, '0123456789ABCDEF', 4)
+	);
+};
+
+// function that assigns random color to background and circle
+
+const assignRandomColor = function() {
+	currentDeck.forEach((card) => (card.background = randomColor()));
+	currentDeck.forEach((card) => (card.circle = randomColor()));
+};
+
 // on click of nextTag, run this
 nextTag.addEventListener('click', function() {
 	next();
-	currentDeck.forEach((card) => (card.background = randomColor()));
+	assignRandomColor();
 });
 // on click of prevTag, run this
 prevTag.addEventListener('click', function() {
 	previous();
-	currentDeck.forEach((card) => (card.background = randomColor()));
+	assignRandomColor();
 });
 
 randomTag.addEventListener('click', function() {
 	random();
-	currentDeck.forEach((card) => (card.background = randomColor()));
+	assignRandomColor();
 });
 
 // keyup events
@@ -164,7 +168,7 @@ const addNewPhrase = function() {
 
 	currentDeck.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
 	document.getElementById('inputbox').value = '';
-	submitButton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+	submitButton.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
 
 	if (currentDeck.length === 1) {
 		outputTag.innerHTML = inputValue;
@@ -191,6 +195,9 @@ const circleAnimation = function() {
 submitButton.addEventListener('click', () => {
 	addNewPhrase();
 	circleAnimation();
+	currentDeck[pageNumber].circle = randomColor();
+	currentDeck[pageNumber].background = randomColor();
+	updateSection();
 });
 
 // key events for add new phrase
@@ -199,6 +206,9 @@ document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 13) {
 		addNewPhrase();
 		circleAnimation();
+		currentDeck[pageNumber].circle = randomColor();
+		currentDeck[pageNumber].background = randomColor();
+		updateSection();
 		e.preventDefault();
 	}
 

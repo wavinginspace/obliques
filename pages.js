@@ -56,6 +56,8 @@ const bodyTag = document.querySelector('body');
 const circleTag = document.querySelector('section div.circle');
 const buttonTag = document.querySelector('.addbutton');
 
+// * NEXT, PREVIOUS, RANDOM FUNCTIONS
+
 // make the next function to increase the pageNumber
 
 const next = function() {
@@ -108,6 +110,8 @@ const updateSection = function() {
 	}
 };
 
+// * STYLE FUNCTIONS
+
 // random hexadecimal function
 
 const randomColor = function() {
@@ -125,6 +129,8 @@ const assignRandomColor = function() {
 	currentDeck.forEach((card) => (card.background = randomColor()));
 	currentDeck.forEach((card) => (card.circle = randomColor()));
 };
+
+// * EVENT LISTENERS
 
 // on click of nextTag, run this
 nextTag.addEventListener('click', function() {
@@ -240,14 +246,15 @@ document.addEventListener('keydown', function(e) {
 	}
 });
 
-// deck buttons ----
+// * DECK BUTTONS
 
 const newDeckButton = document.getElementById('newdeck');
 const paulDeckButton = document.querySelector('#pauldeckbutton');
 
 //returns to default starter deck
 paulDeckButton.addEventListener('click', function() {
-	console.log('test');
+	paulDeckButton.classList.add('deck-selected');
+	newDeckButton.classList.remove('deck-selected');
 	currentDeck = paulDeck;
 	document.querySelector('.mainbody h2').innerHTML = 'breathe';
 });
@@ -255,6 +262,8 @@ paulDeckButton.addEventListener('click', function() {
 //creates blank new deck
 newDeckButton.addEventListener('click', function() {
 	currentDeck = newDeck;
+	newDeckButton.classList.add('deck-selected');
+	paulDeckButton.classList.remove('deck-selected');
 	if (newDeck.length === 0) {
 		document.querySelector('.mainbody h2').innerHTML = '';
 	} else {

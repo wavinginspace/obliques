@@ -188,8 +188,12 @@ button {
 	text-align: left;
 	background-color: transparent;
 	white-space: nowrap;
-	transition: color .5s ease;
+	transition: color 1s ease;
 	border: none;
+}
+
+.deck-selected {
+	font-weight: 900;
 }
 
 .deckbutton:hover {

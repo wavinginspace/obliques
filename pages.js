@@ -164,9 +164,9 @@ const newdeckcount = document.getElementById('newdeckcount');
 
 const addNewPhrase = function() {
 	let inputValue = document.getElementById('inputbox').value;
-	if (!inputValue) {
-		return;
-	}
+	// if (!inputValue) {
+	// 	return;
+	// }
 
 	currentDeck.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
 	document.getElementById('inputbox').value = '';
@@ -177,7 +177,7 @@ const addNewPhrase = function() {
 	}
 
 	if (currentDeck === newDeck) {
-		newdeckcount.innerHTML = `- ${currentDeck.length}`;
+		newdeckcount.textContent = `- ${currentDeck.length}`;
 	}
 
 	setTimeout(function() {
@@ -193,6 +193,26 @@ const circleAnimation = function() {
 		circleTag.classList.remove('animation');
 	}, 2000);
 };
+
+removebutton.addEventListener('click', function() {
+	if (currentDeck.length === 0) {
+		return;
+	}
+
+	if (currentDeck.length > 0) {
+		newdeckcount.innerText = `- ${currentDeck.length - 1}`;
+		previous();
+		currentDeck.pop();
+	} else if (currentDeck.length === 0) {
+		newdeckcount.style.display = 'none';
+	} else {
+		newdeckcount.style.display = 'inline-block';
+	}
+
+	if (currentDeck.length === 0) {
+		outputTag.innerHTML = '';
+	}
+});
 
 submitButton.addEventListener('click', () => {
 	addNewPhrase();
@@ -217,22 +237,6 @@ document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 81) {
 		random();
 		e.preventDefault();
-	}
-});
-
-removebutton.addEventListener('click', function() {
-	newdeckcount.innerText = `- ${currentDeck.length - 1}`;
-	if (currentDeck.length > 0) {
-		previous();
-		currentDeck.pop();
-	}
-
-	if (currentDeck.length <= 0) {
-		newdeckcount.style.display = 'none';
-	}
-
-	if (currentDeck.length <= 0) {
-		outputTag.innerHTML = '';
 	}
 });
 

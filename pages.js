@@ -220,7 +220,7 @@ removebutton.addEventListener('click', function() {
 	next();
 });
 
-// deck buttons
+// deck buttons ----
 
 const newDeckButton = document.getElementById('newdeck');
 const paulDeckButton = document.querySelector('#pauldeckbutton');

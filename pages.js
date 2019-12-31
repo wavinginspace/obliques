@@ -235,8 +235,9 @@ paulDeckButton.addEventListener('click', function() {
 //creates blank new deck
 newDeckButton.addEventListener('click', function() {
 	currentDeck = newDeck;
-	outputTag.innerHTML = currentDeck[0].copy;
 	if (newDeck.length === 0) {
 		document.querySelector('.mainbody h2').innerHTML = '';
+	} else {
+		outputTag.innerHTML = currentDeck[0].copy;
 	}
 });

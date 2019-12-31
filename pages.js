@@ -170,7 +170,9 @@ const addNewPhrase = function() {
 		outputTag.innerHTML = inputValue;
 	}
 
-	newdeckcount.innerHTML = `- ${currentDeck.length}`;
+	if (currentDeck === newDeck) {
+		newdeckcount.innerHTML = `- ${currentDeck.length}`;
+	}
 
 	setTimeout(function() {
 		submitButton.style.backgroundColor = 'transparent';
@@ -190,8 +192,6 @@ submitButton.addEventListener('click', () => {
 	addNewPhrase();
 	circleAnimation();
 });
-
-// ---------------------------------------------------------------//
 
 // key events for add new phrase
 

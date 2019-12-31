@@ -85,6 +85,7 @@ const next = function() {
 
 	updateSection();
 };
+
 // make the previous function to increase the pageNumber
 const previous = function() {
 	pageNumber -= 1;

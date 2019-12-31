@@ -101,9 +101,11 @@ const updateSection = function() {
 	// if (outputTag.innerHTML === '') {
 	// 	return;
 	// }
-	outputTag.innerHTML = currentDeck[pageNumber].copy;
-	circleTag.style.backgroundColor = currentDeck[pageNumber].circle;
-	bodyTag.style.backgroundColor = currentDeck[pageNumber].background;
+	if (currentDeck.length > 0) {
+		outputTag.innerHTML = currentDeck[pageNumber].copy;
+		circleTag.style.backgroundColor = currentDeck[pageNumber].circle;
+		bodyTag.style.backgroundColor = currentDeck[pageNumber].background;
+	}
 };
 
 // random hexadecimal function
@@ -220,14 +222,18 @@ document.addEventListener('keydown', function(e) {
 
 removebutton.addEventListener('click', function() {
 	newdeckcount.innerText = `- ${currentDeck.length - 1}`;
+	if (currentDeck.length > 0) {
+		previous();
+		currentDeck.pop();
+	}
+
 	if (currentDeck.length <= 0) {
 		newdeckcount.style.display = 'none';
 	}
-	currentDeck.pop();
+
 	if (currentDeck.length <= 0) {
 		outputTag.innerHTML = '';
 	}
-	next();
 });
 
 // deck buttons ----

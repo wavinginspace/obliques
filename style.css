@@ -204,3 +204,19 @@ button {
 .deckbutton:focus {
 	outline: none;
 }
+
+.shuffle {
+	position: absolute;
+	top: 30px;
+	left: 40px;
+	padding: 10px;
+	font-family: 'Courier Prime', monospace;
+	font-size: 14px;
+	transition: box-shadow 0.3s;
+}
+
+.shuffle:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	box-shadow: 5px 5px rgb(0, 0, 0, 0.3);
+}

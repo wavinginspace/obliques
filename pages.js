@@ -252,6 +252,7 @@ document.addEventListener('keydown', function(e) {
 
 const newDeckButton = document.getElementById('newdeck');
 const paulDeckButton = document.querySelector('#pauldeckbutton');
+let shuffleButton = document.querySelector('.shuffle');
 
 //returns to default starter deck
 paulDeckButton.addEventListener('click', function() {
@@ -271,6 +272,12 @@ newDeckButton.addEventListener('click', function() {
   } else {
     outputTag.innerHTML = currentDeck[0].copy;
   }
+});
+
+shuffleButton.addEventListener('click', function() {
+  console.log('test');
+  nextTag.style.display = 'none';
+  prevTag.style.display = 'none';
 });
 
 

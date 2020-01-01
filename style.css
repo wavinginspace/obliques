@@ -173,10 +173,10 @@ button {
 	word-wrap: nowrap;
 }
 
-.deckbutton {
+  .deckbutton {
 	font-family: 'Courier Prime', monospace;
 	font-size: 16px;
-	position: relative;
+  position: relative;
 	display: inline-block;
 	margin-right: 80px;
 	margin-bottom: 10px;

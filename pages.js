@@ -164,6 +164,8 @@ document.addEventListener('keydown', function(e) {
 
 // add and delete button functions
 
+const deleteTag = document.getElementById('deletebutton');
+const inputTag = document.getElementById('inputbox');
 const submitButton = document.querySelector('.submitbutton');
 const removebutton = document.querySelector('.removebutton');
 const newdeckcount = document.getElementById('newdeckcount');
@@ -252,7 +254,7 @@ document.addEventListener('keydown', function(e) {
 
 const newDeckButton = document.getElementById('newdeck');
 const paulDeckButton = document.querySelector('#pauldeckbutton');
-let shuffleButton = document.querySelector('.shuffle');
+const shuffleButton = document.querySelector('.shuffle');
 
 //returns to default starter deck
 paulDeckButton.addEventListener('click', function() {
@@ -275,9 +277,18 @@ newDeckButton.addEventListener('click', function() {
 });
 
 shuffleButton.addEventListener('click', function() {
-  console.log('test');
-  nextTag.style.display = 'none';
-  prevTag.style.display = 'none';
+  nextTag.classList.toggle('hidden');
+  prevTag.classList.toggle('hidden');
+  submitButton.classList.toggle('hidden');
+  inputTag.classList.toggle('hidden');
+  deleteTag.classList.toggle('hidden');
+  randomTag.classList.toggle('bigger');
+
+  if (nextTag.classList.contains('hidden')) {
+    shuffleButton.innerText = 'edit mode';
+  } else {
+    shuffleButton.innerText = 'shuffle mode';
+  }
 });
 
 

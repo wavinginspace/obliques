@@ -137,6 +137,18 @@ button {
 	text-align: center;
 }
 
+.hidden {
+	display: none;
+}
+
+.random {
+	transition: all .5s ease;
+}
+
+.bigger {
+	transform: scale(2);
+}
+
 .removebutton {
 	text-align: center;
 	position: relative;
@@ -147,7 +159,7 @@ button {
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 15%;
-	transition: background-color .5s ease-in;
+	transition: all .5s ease;
 	left: 50%;
 	bottom: 15px;
 	margin-top: 30px;
@@ -173,10 +185,10 @@ button {
 	word-wrap: nowrap;
 }
 
-  .deckbutton {
+.deckbutton {
 	font-family: 'Courier Prime', monospace;
 	font-size: 16px;
-  position: relative;
+	position: relative;
 	display: inline-block;
 	margin-right: 80px;
 	margin-bottom: 10px;

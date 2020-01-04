@@ -2,7 +2,7 @@
 'use strict';
 
 let pageNumber = 0;
-let currentDeck;
+
 
 const paulDeck = [
   { copy: 'breathe', background: '#FAEFDC', circle: '#768EAD' },
@@ -45,9 +45,11 @@ const paulDeck = [
 ];
 const newDeck = [];
 
-window.onload = function() {
-  currentDeck = paulDeck;
-};
+let currentDeck = paulDeck;
+
+// window.onload = function() {
+//   currentDeck = paulDeck;
+// };
 
 // pick the relevant tags
 const nextTag = document.querySelector('.next');

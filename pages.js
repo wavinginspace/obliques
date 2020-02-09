@@ -75,16 +75,17 @@ const updateSection = function() {
 
 // * STYLE FUNCTIONS
 
-// random hexadecimal function
+const randomBgColor = function () {
+  let num = Math.floor(Math.random() * Math.floor(5));
+  let color = store.colors[`bg${num}`]
+  return color
+}
 
-// const randomColor = function() {
-//   return (
-//     '#' +
-// 		(function lol(m, s, c) {
-// 		  return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
-// 		})(Math, '0123456789ABCDEF', 4)
-//   );
-// };
+const randomFgColor = function () {
+  let num = Math.floor(Math.random() * Math.floor(5));
+  let color = store.colors[`fg${num}`]
+  return color
+}
 
 // function that assigns random color to background and circle
 
@@ -107,6 +108,9 @@ prevTag.addEventListener('click', function() {
 });
 
 randomTag.addEventListener('click', function() {
+  if (currentDeck.length === 1) {
+    return;
+  }
   random();
   // assignRandomColor();
 });
@@ -135,11 +139,8 @@ const newdeckcount = document.getElementById('newdeckcount');
 
 const addNewPhrase = function() {
   let inputValue = document.getElementById('inputbox').value;
-  // if (!inputValue) {
-  // 	return;
-  // }
-
-  currentDeck.push({ copy: inputValue, background: '#d3c7f3', circle: '#f7fe00' });
+ 
+  currentDeck.push({ copy: inputValue, background: randomBgColor(), circle: randomFgColor() });
   document.getElementById('inputbox').value = '';
   submitButton.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
 
@@ -167,11 +168,13 @@ const circleAnimation = function() {
 
 removebutton.addEventListener('click', function() {
   if (currentDeck.length === 0) {
+    outputTag.innerHTML = '';
+    newdeckcount.style.display = 'none';
     return;
   }
 
   if (currentDeck.length > 0) {
-    newdeckcount.innerText = `- querySelector{currentDeck.length - 1}`;
+    newdeckcount.innerText = `- ${currentDeck.length - 1}`;
     previous();
     currentDeck.pop();
   } else if (currentDeck.length === 0) {
@@ -180,14 +183,16 @@ removebutton.addEventListener('click', function() {
     newdeckcount.style.display = 'inline-block';
   }
 
-  if (currentDeck.length === 0) {
-    outputTag.innerHTML = '';
-  }
+  // if (currentDeck.length === 0) {
+  //   outputTag.innerHTML = '';
+  // }
 });
 
 submitButton.addEventListener('click', () => {
   addNewPhrase();
   circleAnimation();
+  currentDeck[pageNumber].circle = randomFgColor();
+  currentDeck[pageNumber].background = randomBgColor();
   updateSection();
 });
 

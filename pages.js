@@ -2,26 +2,25 @@ import store from './scripts/store.js'
 
 'use strict';
 
-let pageNumber = 0;
-
 const newDeck = [];
 
 let {paulDeck} = store;
-
 let currentDeck = paulDeck;
 
 // pick the relevant tags
-const nextTag = document.querySelector('.next');
-const prevTag = document.querySelector('.prev');
-const randomTag = document.querySelector('.random');
-const outputTag = document.querySelector('h2');
-const bodyTag = document.querySelector('body');
-const circleTag = document.querySelector('section div.circle');
-const buttonTag = document.querySelector('.addbutton');
+const nextTag = document.$('.next');
+const prevTag = document.$('.prev');
+const randomTag = document.$('.random');
+const outputTag = document.$('h2');
+const bodyTag = document.$('body');
+const circleTag = document.$('section div.circle');
+const buttonTag = document.$('.addbutton');
 
 // * NEXT, PREVIOUS, RANDOM FUNCTIONS
 
 // make the next function to increase the pageNumber
+
+let pageNumber = 0;
 
 const next = function() {
   pageNumber += 1;
@@ -127,8 +126,8 @@ document.addEventListener('keydown', function(e) {
 
 const deleteTag = document.getElementById('deletebutton');
 const inputTag = document.getElementById('inputbox');
-const submitButton = document.querySelector('.submitbutton');
-const removebutton = document.querySelector('.removebutton');
+const submitButton = document.$('.submitbutton');
+const removebutton = document.$('.removebutton');
 const newdeckcount = document.getElementById('newdeckcount');
 
 // adds new phrase to the pages array ---------------------------------------------------
@@ -188,8 +187,8 @@ removebutton.addEventListener('click', function() {
 submitButton.addEventListener('click', () => {
   addNewPhrase();
   circleAnimation();
-  currentDeck[pageNumber].circle = randomColor();
-  currentDeck[pageNumber].background = randomColor();
+  // currentDeck[pageNumber].circle = randomColor();
+  // currentDeck[pageNumber].background = randomColor();
   updateSection();
 });
 
@@ -199,8 +198,8 @@ document.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     addNewPhrase();
     circleAnimation();
-    currentDeck[pageNumber].circle = randomColor();
-    currentDeck[pageNumber].background = randomColor();
+    // currentDeck[pageNumber].circle = randomColor();
+    // currentDeck[pageNumber].background = randomColor();
     updateSection();
     e.preventDefault();
   }
@@ -213,16 +212,16 @@ document.addEventListener('keydown', function(e) {
 
 // * DECK BUTTONS
 
-const newDeckButton = document.getElementById('newdeck');
-const paulDeckButton = document.querySelector('#pauldeckbutton');
-const shuffleButton = document.querySelector('.shuffle');
+const newDeckButton = $('#newdeck');
+const paulDeckButton = $('#pauldeckbutton');
+const shuffleButton = $('.shuffle');
 
 //returns to default starter deck
 paulDeckButton.addEventListener('click', function() {
   paulDeckButton.classList.add('deck-selected');
   newDeckButton.classList.remove('deck-selected');
   currentDeck = paulDeck;
-  document.querySelector('.mainbody h2').innerHTML = 'breathe';
+  document.$('.mainbody h2').innerHTML = 'breathe';
 });
 
 //creates blank new deck
@@ -231,7 +230,7 @@ newDeckButton.addEventListener('click', function() {
   newDeckButton.classList.add('deck-selected');
   paulDeckButton.classList.remove('deck-selected');
   if (newDeck.length === 0) {
-    document.querySelector('.mainbody h2').innerHTML = '';
+    document.$('.mainbody h2').innerHTML = '';
   } else {
     outputTag.innerHTML = currentDeck[0].copy;
   }

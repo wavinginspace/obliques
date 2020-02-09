@@ -20,16 +20,16 @@ const paulDeck = [
   { copy: 'go for a long walk', background: bg4, circle: fg4 },
   { copy: 'make some tea', background: bg5, circle: fg5 },
   { copy: 'hug an animal', background: bg1, circle: fg1 },
-  { copy: 'dress comfortably', background: bg2, circle: bg2 },
+  { copy: 'dress comfortably', background: bg2, circle: fg2 },
   { copy: 'close your eyes', background: bg3, circle: fg3 },
   { copy: 'congratulate yourself', background: bg4, circle: fg4 },
-  { copy: 'talk to a friend', background: bg5, circle: bg5 },
+  { copy: 'talk to a friend', background: bg5, circle: fg5 },
   { copy: 'eat some fruit', background: bg1, circle: fg1 },
   { copy: 'smile', background: bg2, circle: fg2 },
-  { copy: 'light some incense', background: bg3, circle: bg3 },
+  { copy: 'light some incense', background: bg3, circle: fg3 },
   { copy: 'take a nap', background: bg4, circle: fg4 },
   { copy: 'listen to relaxing music', background: bg5, circle: fg5 },
-  { copy: 'stretch!', background: bg1, circle: bg1 },
+  { copy: 'stretch!', background: bg1, circle: fg1 },
   { copy: 'go for a bike ride', background: bg2, circle: fg2 },
   { copy: 'have a drink', background: bg3, circle: fg3 },
   { copy: 'meditate', background: bg4, circle: bg4 },
@@ -54,5 +54,6 @@ const paulDeck = [
 ];
 
 export default {
-  paulDeck
+  paulDeck,
+  colors
 };

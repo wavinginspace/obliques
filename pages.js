@@ -8,19 +8,20 @@ let {paulDeck} = store;
 let currentDeck = paulDeck;
 
 // pick the relevant tags
-const nextTag = document.$('.next');
-const prevTag = document.$('.prev');
-const randomTag = document.$('.random');
-const outputTag = document.$('h2');
-const bodyTag = document.$('body');
-const circleTag = document.$('section div.circle');
-const buttonTag = document.$('.addbutton');
+const nextTag = document.querySelector('.next');
+const prevTag = document.querySelector('.prev');
+const randomTag = document.querySelector('.random');
+const outputTag = document.querySelector('h2');
+const bodyTag = document.querySelector('body');
+const circleTag = document.querySelector('section div.circle');
+const buttonTag = document.querySelector('.addbutton');
 
 // * NEXT, PREVIOUS, RANDOM FUNCTIONS
 
 // make the next function to increase the pageNumber
 
 let pageNumber = 0;
+
 
 const next = function() {
   pageNumber += 1;
@@ -126,8 +127,8 @@ document.addEventListener('keydown', function(e) {
 
 const deleteTag = document.getElementById('deletebutton');
 const inputTag = document.getElementById('inputbox');
-const submitButton = document.$('.submitbutton');
-const removebutton = document.$('.removebutton');
+const submitButton = document.querySelector('.submitbutton');
+const removebutton = document.querySelector('.removebutton');
 const newdeckcount = document.getElementById('newdeckcount');
 
 // adds new phrase to the pages array ---------------------------------------------------
@@ -147,7 +148,7 @@ const addNewPhrase = function() {
   }
 
   if (currentDeck === newDeck) {
-    newdeckcount.textContent = `- ${currentDeck.length}`;
+    newdeckcount.textContent = `- querySelector{currentDeck.length}`;
   }
 
   setTimeout(function() {
@@ -170,7 +171,7 @@ removebutton.addEventListener('click', function() {
   }
 
   if (currentDeck.length > 0) {
-    newdeckcount.innerText = `- ${currentDeck.length - 1}`;
+    newdeckcount.innerText = `- querySelector{currentDeck.length - 1}`;
     previous();
     currentDeck.pop();
   } else if (currentDeck.length === 0) {
@@ -212,16 +213,16 @@ document.addEventListener('keydown', function(e) {
 
 // * DECK BUTTONS
 
-const newDeckButton = $('#newdeck');
-const paulDeckButton = $('#pauldeckbutton');
-const shuffleButton = $('.shuffle');
+const newDeckButton = document.querySelector('#newdeck');
+const paulDeckButton = document.querySelector('#pauldeckbutton');
+const shuffleButton = document.querySelector('.shuffle');
 
 //returns to default starter deck
 paulDeckButton.addEventListener('click', function() {
   paulDeckButton.classList.add('deck-selected');
   newDeckButton.classList.remove('deck-selected');
   currentDeck = paulDeck;
-  document.$('.mainbody h2').innerHTML = 'breathe';
+  document.querySelector('.mainbody h2').innerHTML = 'breathe';
 });
 
 //creates blank new deck
@@ -230,7 +231,7 @@ newDeckButton.addEventListener('click', function() {
   newDeckButton.classList.add('deck-selected');
   paulDeckButton.classList.remove('deck-selected');
   if (newDeck.length === 0) {
-    document.$('.mainbody h2').innerHTML = '';
+    document.querySelector('.mainbody h2').innerHTML = '';
   } else {
     outputTag.innerHTML = currentDeck[0].copy;
   }

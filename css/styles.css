@@ -205,7 +205,9 @@ button {
 .decks {
   width: 200px;
   height: 100px;
-  margin-left: 60%;
+  position: absolute;
+  top: 10px;
+  right: 140px;
 }
 
 #newdeckcount {
@@ -228,7 +230,6 @@ button {
   display: inline-block;
   margin-right: 80px;
   margin-bottom: 10px;
-  margin-top: 20px;
   margin-left: 82%;
   right: 0;
   width: 80px;

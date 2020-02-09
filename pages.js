@@ -148,7 +148,7 @@ const addNewPhrase = function() {
   }
 
   if (currentDeck === newDeck) {
-    newdeckcount.textContent = `- querySelector{currentDeck.length}`;
+    newdeckcount.textContent = `- ${currentDeck.length}`;
   }
 
   setTimeout(function() {
@@ -188,8 +188,6 @@ removebutton.addEventListener('click', function() {
 submitButton.addEventListener('click', () => {
   addNewPhrase();
   circleAnimation();
-  // currentDeck[pageNumber].circle = randomColor();
-  // currentDeck[pageNumber].background = randomColor();
   updateSection();
 });
 
@@ -199,8 +197,6 @@ document.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     addNewPhrase();
     circleAnimation();
-    // currentDeck[pageNumber].circle = randomColor();
-    // currentDeck[pageNumber].background = randomColor();
     updateSection();
     e.preventDefault();
   }
@@ -237,6 +233,8 @@ newDeckButton.addEventListener('click', function() {
   }
 });
 
+//shuffle mode on or off
+
 shuffleButton.addEventListener('click', function() {
   nextTag.classList.toggle('hidden');
   prevTag.classList.toggle('hidden');
@@ -251,11 +249,3 @@ shuffleButton.addEventListener('click', function() {
     shuffleButton.innerText = 'shuffle mode';
   }
 });
-
-// ! Matching colors
-
-// ? #FAEFDC, #768EAD
-// ? #ffe0d5, #d5fcff
-// ? #e1fff5, #ffe6e1
-// ? #fff3d4, #e7d4ff
-// ? #ffd5d3, #d3ffdd

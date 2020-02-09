@@ -15,7 +15,7 @@ body {
 	font-size: 24px;
 	line-height: 1.25;
 
-	background-color: #edc7a9;
+	// background-color: #edc7a9;
 	background-image: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0));
 	color: #000;
 	height: 100vh;

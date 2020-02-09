@@ -1,55 +1,14 @@
-// this is the data for holding which page we're on
+import store from './scripts/store.js'
+
 'use strict';
 
 let pageNumber = 0;
 
-
-const paulDeck = [
-  { copy: 'breathe', background: '#FAEFDC', circle: '#768EAD' },
-  { copy: 'be kind to yourself', background: '#a1fffe', circle: '#3e78ed' },
-  { copy: 'don\'t overthink it', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'go for a long walk', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'make some tea', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'hug an animal', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'dress comfortably', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'close your eyes', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'congratulate yourself', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'talk to a friend', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'eat some fruit', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'smile', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'light some incense', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'take a nap', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'listen to relaxing music', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'stretch!', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'go for a bike ride', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'have a drink', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'meditate', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'text someone who loves you', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'visualize where you want to be', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'plan a trip', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'play an instrument', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'lie down on the floor', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'count your blessings', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'take a long shower', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'have a snack', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'lose yourself in a book', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'play a record', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'go outside', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'take 10 deep breaths', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'write down your feelings', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'draw something', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'record some music', background: '#d3c7f3', circle: '#f7fe00' },
-  { copy: 'learn something new', background: '#edc7a9', circle: '#3e78ed' },
-  { copy: 'light a candle', background: '#a1fffe', circle: '#e34a47' },
-  { copy: 'smile', background: '#a1fffe', circle: '#e34a47' }
-];
 const newDeck = [];
 
-let currentDeck = paulDeck;
+let {paulDeck} = store;
 
-// window.onload = function() {
-//   currentDeck = paulDeck;
-// };
+let currentDeck = paulDeck;
 
 // pick the relevant tags
 const nextTag = document.querySelector('.next');
@@ -118,38 +77,38 @@ const updateSection = function() {
 
 // random hexadecimal function
 
-const randomColor = function() {
-  return (
-    '#' +
-		(function lol(m, s, c) {
-		  return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
-		})(Math, '0123456789ABCDEF', 4)
-  );
-};
+// const randomColor = function() {
+//   return (
+//     '#' +
+// 		(function lol(m, s, c) {
+// 		  return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
+// 		})(Math, '0123456789ABCDEF', 4)
+//   );
+// };
 
 // function that assigns random color to background and circle
 
-const assignRandomColor = function() {
-  currentDeck.forEach((card) => (card.background = randomColor()));
-  currentDeck.forEach((card) => (card.circle = randomColor()));
-};
+// const assignRandomColor = function() {
+//   currentDeck.forEach((card) => (card.background = randomColor()));
+//   currentDeck.forEach((card) => (card.circle = randomColor()));
+// };
 
 // * EVENT LISTENERS
 
 // on click of nextTag, run this
 nextTag.addEventListener('click', function() {
   next();
-  assignRandomColor();
+  // assignRandomColor();
 });
 // on click of prevTag, run this
 prevTag.addEventListener('click', function() {
   previous();
-  assignRandomColor();
+  // assignRandomColor();
 });
 
 randomTag.addEventListener('click', function() {
   random();
-  assignRandomColor();
+  // assignRandomColor();
 });
 
 // keyup events
@@ -292,8 +251,6 @@ shuffleButton.addEventListener('click', function() {
     shuffleButton.innerText = 'shuffle mode';
   }
 });
-
-
 
 // ! Matching colors
 

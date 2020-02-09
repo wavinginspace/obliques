@@ -63,6 +63,7 @@ section {
 .mainbody {
   top: 40%;
   position: absolute;
+  margin-bottom: 100px;
 }
 
 section div.circle {
@@ -132,6 +133,10 @@ section a {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+form {
+  margin-top: 40px;
+}
+
 input[type='text'] {
   background: transparent;
   border: 2px solid black;
@@ -158,7 +163,7 @@ input {
 
 .bottomstuff {
   position: relative;
-  top: 55%;
+  top: 60%;
 }
 
 input[type='submit'] {

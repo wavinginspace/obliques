@@ -22,7 +22,6 @@ const buttonTag = document.querySelector('.addbutton');
 
 let pageNumber = 0;
 
-
 const next = function() {
   pageNumber += 1;
 
